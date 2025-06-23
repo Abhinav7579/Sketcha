@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+@source "../../../packages/ui/src/button.tsx";
+@source "../../../packages/ui/src/Heading.tsx";
+@source "../../../packages/ui/src/Footer.tsx";
+@source "../../../packages/ui/src/card.tsx";
+@source "../../../packages/ui/src/code.tsx";
+@source "../../../packages/ui/src/Hero.tsx";
+@source "../../../packages/ui/src/InputBox.tsx";
+
+@source "../../../packages/ui/src/Subheading.tsx";
