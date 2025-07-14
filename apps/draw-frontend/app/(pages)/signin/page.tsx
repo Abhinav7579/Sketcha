@@ -34,15 +34,15 @@ const routerr=useRouter();
 }
 
     return (
-    <div>
+     
+    <div className="bg-gradient-to-b from-blue-900 to-purple-800 h-screen">
       <div>
-         <div className=" bg-slate-300 pt-[100px] text-blue-600 font-bold text-6xl flex justify-center">
+         <div className=" pt-[50px] text-6xl  text-yellow-400 font-bold lg:text-7xl flex justify-center">
              Sketcha
             </div>
       </div>
 
-    
-    <div className="bg-slate-300 mt-[-100px] h-screen flex justify-center"> 
+    <div className=" mt-[80px] flex justify-center"> 
     <div className="flex flex-col justify-center">
       <div className="rounded-lg bg-white w-80 text-center p-2 h-max px-4">
         <Heading label={"Sign in"} />
@@ -60,5 +60,6 @@ const routerr=useRouter();
     </div>
   </div>
   </div>
+  
   )
 }

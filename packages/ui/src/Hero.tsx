@@ -1,6 +1,6 @@
 "use client"
 import React from 'react';
-import { Sparkles, MousePointerClick, ArrowRight } from 'lucide-react';
+import { Sparkles} from 'lucide-react';
 
 export const Hero = () => {
   return (
@@ -9,10 +9,11 @@ export const Hero = () => {
         <div className="flex flex-col lg:flex-row items-center">
           <div className="lg:w-1/2 lg:pr-12 mb-10 lg:mb-0">
             <div className="relative inline-block mb-4">
-              <span className="bg-indigo-100 text-indigo-800 text-sm font-medium py-1 px-3 rounded-full inline-flex items-center">
+              <span className="hidden lg:inline-flex bg-indigo-100 text-indigo-800 text-sm font-medium py-1 px-3 rounded-full items-center">
                 <Sparkles className="h-4 w-4 mr-1" />
-                <span>Reimagined Whiteboarding</span>
-              </span>
+                 <span>Reimagined Whiteboarding</span>
+                  </span>
+
             </div>
             
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
