@@ -8,11 +8,14 @@ import { JWT_PASS } from "@repo/backend-common/config";
 
 import {UserRequiredbody,SigninRequiredbody,RoomRequiredbody} from "@repo/common/types"
 import { middleware } from "../middleware";
+
 userRouter.post("/signup",async(req,res)=>{
 
     const parsed=UserRequiredbody.safeParse(req.body);
     if(!parsed.success){
-        res.json({message:"incorrect credentials"})
+        res.json({
+             success:false,
+            message:"incorrect credentials"})
         return;
     }
     const { name,username, password} = parsed.data;
@@ -22,7 +25,9 @@ userRouter.post("/signup",async(req,res)=>{
   where: { email: username }
 });
     if(usernameexist){
-        res.status(411).json({message:"username already taken"})
+        res.status(411).json({
+             success:false,
+            message:"username already taken"})
     }
     else{
 
@@ -38,12 +43,15 @@ userRouter.post("/signup",async(req,res)=>{
     })
 
     res.status(200).json({
+         success:true,
         message:"you are successfully signed up",
         userId:user.id
     })
 }
 catch(e){
-    res.status(411).json({message:"error while signing up"})
+    res.status(411).json({
+         success:false,
+        message:"error while signing up"})
 }
     }
 })
@@ -51,7 +59,9 @@ catch(e){
 userRouter.post("/signin" , async (req,res)=>{
      const parsed=SigninRequiredbody.safeParse(req.body);
     if(!parsed.success){
-        res.json({message:"incorrect credentials"})
+        res.json({
+             success:false,
+            message:"incorrect credentials"})
         return;
     }
 
@@ -62,16 +72,22 @@ userRouter.post("/signin" , async (req,res)=>{
     })
     
     if (!existinguser || !existinguser.password) {
-     res.status(403).json({ message: "User does not exist or password missing" });
+     res.status(403).json({
+         success:false,
+         message: "User does not exist or password missing" });
   }
         else{
         const passcompare= await bcrypt.compare(password,existinguser.password);
         if(passcompare){
         const token = jwt.sign({ id: existinguser.id }, JWT_PASS);
-        res.status(200).json({ token:token });
+        res.status(200).json({
+             success:true,
+             token:token });
         }
         else{
-            res.status(403).json({ message: "Incorrect credentials" });
+            res.status(403).json({ 
+                success:false,
+                message: "Incorrect credentials" });
         }
     }
 })

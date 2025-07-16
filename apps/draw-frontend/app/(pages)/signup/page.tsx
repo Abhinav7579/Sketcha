@@ -21,7 +21,8 @@ export default function Signup() {
             password:password
         })
 
-        if(response.status===200){
+        if(response.status === 200 && response.data?.success){
+          alert("successfully signed up")
              router.push("/signin")
         }
         else{
